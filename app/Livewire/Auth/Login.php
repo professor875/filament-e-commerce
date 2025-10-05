@@ -36,16 +36,16 @@ class Login extends Component
 
         $user = $this->validateCredentials();
 
-        if (Features::canManageTwoFactorAuthentication() && $user->hasEnabledTwoFactorAuthentication()) {
-            Session::put([
-                'login.id' => $user->getKey(),
-                'login.remember' => $this->remember,
-            ]);
-
-            $this->redirect(route('two-factor.login'), navigate: true);
-
-            return;
-        }
+//        if (Features::canManageTwoFactorAuthentication() && $user->hasEnabledTwoFactorAuthentication()) {
+//            Session::put([
+//                'login.id' => $user->getKey(),
+//                'login.remember' => $this->remember,
+//            ]);
+//
+//            $this->redirect(route('two-factor.login'), navigate: true);
+//
+//            return;
+//        }
 
         Auth::login($user, $this->remember);
 
